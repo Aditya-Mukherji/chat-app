@@ -21,6 +21,8 @@ const sendMessage = async (req,res)=>{
         if(newMessage){
             conversation.messages.push(newMessage._id)
         }
+        // TBD Socket.io functionallity
+        await Promise.all([conversation.save(),newMessage.save()])
         res.status(201).json({
             message:"Message was sent successfully"
         })
@@ -31,4 +33,31 @@ const sendMessage = async (req,res)=>{
         })
     }
 }
-export default sendMessage
+const getMessages= async (req,res)=>{
+    
+    try{
+        const {id:userToChatId}= req.params;
+        const senderId =req.user._id;
+        const conversation = await Conversation.findOne({
+            participants: {$all:[senderId,userToChatId]}
+        }).populate("messages");
+
+        if(!conversation){
+            return res.staus(200).json([])
+        }
+        const messages= conversation.messages
+        res.status(200).json(messages)
+    }catch(error){
+        console.log("Error in getMessages controller: ",error.message)
+        res.status(500).json({
+            error:"Internal Server Error"
+        })
+    }
+
+}
+const Constants={
+    sendMessage,
+    getMessages
+}
+
+export default Constants

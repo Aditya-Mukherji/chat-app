@@ -22,9 +22,9 @@ export const signup = async (req, res) => {
     //avatar placeholder logic using liara API
 
     const boyProfilePic =
-      "https://avatar.iran.liara.run/public/boy?username=${username}";
+      `https://avatar.iran.liara.run/public/boy?username=${username}`;
     const girlProfilePic =
-      "https://avatar.iran.liara.run/public/girl?username=${username}";
+      `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
     const newUser = new User({
       fullName: fullName,
