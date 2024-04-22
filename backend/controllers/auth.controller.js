@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
 		// HASH PASSWORD HERE
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-    console.log("Hashed")
+
 		// https://avatar-placeholder.iran.liara.run/
 
 		const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
@@ -32,7 +32,7 @@ export const signup = async (req, res) => {
 			gender,
 			profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
 		});
-    console.log("User Created")
+
 		if (newUser) {
 			// Generate JWT token here
 			generateTokenAndSetCookie(newUser._id, res);
