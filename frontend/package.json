@@ -281,7 +281,6 @@
     "which-collection": "^1.0.1",
     "which-typed-array": "^1.1.14",
     "wrap-ansi": "^8.1.0",
-    "wrap-ansi-cjs": "^7.0.0",
     "wrappy": "^1.0.2",
     "ws": "^8.11.0",
     "xmlhttprequest-ssl": "^2.0.0",
