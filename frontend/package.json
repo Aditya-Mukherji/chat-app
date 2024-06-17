@@ -245,8 +245,6 @@
     "socket.io-client": "^4.7.4",
     "socket.io-parser": "^4.2.4",
     "source-map-js": "^1.0.2",
-    "string-width": "^5.1.2",
-    "string-width-cjs": "^4.2.3",
     "string.prototype.matchall": "^4.0.10",
     "string.prototype.trim": "^1.2.8",
     "string.prototype.trimend": "^1.0.7",
